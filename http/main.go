@@ -30,7 +30,7 @@ func main() {
 	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		code := http.StatusOK
 		w.WriteHeader(code)
-		glog.Infof("url:%s ip:%s code:%d", "/env", r.RemoteAddr, code)
+		glog.Infof("url:%s ip:%s code:%d", "/healthz", r.RemoteAddr, code)
 	})
 
 	mux.HandleFunc("/echo", func(w http.ResponseWriter, r *http.Request) {
@@ -41,7 +41,7 @@ func main() {
 		}
 		code := http.StatusOK
 		w.WriteHeader(code)
-		glog.Infof("url:%s ip:%s code:%d", "/env", r.RemoteAddr, code)
+		glog.Infof("url:%s ip:%s code:%d", "/echo", r.RemoteAddr, code)
 	})
 
 	err := http.ListenAndServe(":80", mux)
